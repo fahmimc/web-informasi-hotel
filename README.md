@@ -11,6 +11,6 @@ Website informasi hotel sederhana dengan menggunakan Laravel 8 dan TailwindCSS s
 2. run "npm install"
 3. run "npm run dev"
 4. copy .env.example to .env
-5. create db 'db_hotels'
+5. create db "db_hotels"
 6. run "php artisan migrate"
 7. run "php artisan db:seed"

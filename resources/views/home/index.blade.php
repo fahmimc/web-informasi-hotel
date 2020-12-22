@@ -28,8 +28,8 @@
             <h1 class="mb-8 text-4xl sm:text-5xl text-cool-gray-100 font-light text-center tracking-wider">
                 {{ config('app.name') }}
             </h1>
-            <form class="flex w-full" action="">
-                <input class="form-input rounded-none w-full" type="search" placeholder="Cari Hotel">
+            <form class="flex w-full" action="/search" method="GET">
+                <input class="form-input rounded-none w-full" type="search" name="search" placeholder="Cari Hotel">
                 <button class="bg-red-700 text-white p-3" type="submit">Search</button>
             </form>
         </div>

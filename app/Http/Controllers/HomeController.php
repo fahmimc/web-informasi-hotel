@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hotel;
+use DB;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,13 @@ class HomeController extends Controller
         return view('home.show',compact('hotel'));
     }
     
-    public function search()
-    {
-        
-    }
+    public function search(Request $request)
+	{
+		$search = $request->search;
+		$hotels = DB::table('hotels')
+		->where('name','like',"%".$search."%")
+		->paginate(6);
+
+		return view('home.index',['hotels' => $hotels]);
+	}
 }

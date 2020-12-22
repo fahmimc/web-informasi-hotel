@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Models\Hotel;
 
 class DashboardController extends Controller
 {
@@ -13,6 +15,15 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard.index');
+        $uid = Auth::user()->id;
+        $has_hotel = Hotel::where('owner_id', $uid)->first();;
+        if ($has_hotel)
+        {
+            return view('dashboard.index',['has_hotel' => $has_hotel]);
+        }
+        else 
+        {
+            return view('dashboard.index');
+        }
     }
 }

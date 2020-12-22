@@ -19,7 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('home', \App\Http\Controllers\HomeController::class);
-Route::get('/search','App\Http\Controllers\HomeController@search');
+Route::get('home','App\Http\Controllers\HomeController@search');
 
 Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 

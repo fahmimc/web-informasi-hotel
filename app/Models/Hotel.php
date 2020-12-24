@@ -21,7 +21,10 @@ class Hotel extends Model
         'address',
         'phone',
         'email',
+        'latitude',
+        'longitude',
         'owner_id',
+        'click_counter'
     ];
 
     /**
@@ -30,6 +33,7 @@ class Hotel extends Model
      * @var array
      */
     protected $hidden = [
+        
         // Contoh : 
         // 'password',
         // 'remember_token',

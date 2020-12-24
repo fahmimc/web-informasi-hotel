@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="bg-gray-100 w-screen h-screen font-sans flex flex-row items-center justify-center">
-    <div class="w-1/3 p-8 bg-white shadow-lg">
+<div class="sm:container mx-auto my-10 bg-gray-100 w-screen h-screen font-sans flex flex-row items-start justify-center">
+    <div class="w-1/3 mx-2 p-8 bg-white shadow-lg">
         <img src="{{ $hotel->images }}" alt="{{ $hotel->name }}">
         <h1 class="text-3xl font-bold text-cool-gray-900 mt-8 mb-10">
             {{ $hotel->name }}
@@ -20,8 +20,15 @@
             <span class="font-bold">Email:</span> {{ $hotel->email }}
         </p>
     </div>
-    <div class="w-1/3 p-8 bg-white shadow-lg">
-        <div style="width: 100%"><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+    <div class="w-1/3 mx-2">
+        <div class="mb-2 p-8 bg-white shadow-lg">
+            <iframe class="my-4" width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ $hotel->latitude }},{{ $hotel->longitude }}&amp;key={{ env("GOOGLE_API",null )}}"></iframe>
+            <a href="https://www.latlong.net/c/?lat=-{{ $hotel->latitude }}&long={{ $hotel->longitude }}" target="_blank">({{ $hotel->latitude }}, {{ $hotel->longitude }})</a>
+        </div>
+        <div class="mt-4 p-8 bg-white shadow-lg text-center">
+            <button class="w-1/3 p-4 text-white bg-green-600 hover:bg-green-500 transition duration-300 ease-in-out">Like</button>
+            <button class="w-1/3 p-4 text-white bg-red-600 hover:bg-red-500 transition duration-300 ease-in-out">Dislike</button>
+        </div>
     </div>
 </div>
 @endsection

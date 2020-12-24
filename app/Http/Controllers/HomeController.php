@@ -22,6 +22,7 @@ class HomeController extends Controller
     public function show($id)
     {
         $hotel = Hotel::find($id);
+        $hotel->increment('click_counter');
         return view('home.show',compact('hotel'));
     }
     

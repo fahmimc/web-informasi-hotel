@@ -15,8 +15,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $uid = Auth::user()->id;
-        $has_hotel = Hotel::where('owner_id', $uid)->first();;
+        $has_hotel = Hotel::where('owner_id', Auth::id())->first();;
         if ($has_hotel)
         {
             return view('dashboard.index',['has_hotel' => $has_hotel]);
@@ -25,5 +24,24 @@ class DashboardController extends Controller
         {
             return view('dashboard.index');
         }
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description'=> 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        $temp = $request->all();
+        $temp['click_counter'] = 0;
+        $temp['owner_id'] = Auth::id();
+
+        Hotel::create($temp);
+
+        return redirect()->route('dashboard.index');
     }
 }

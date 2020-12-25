@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="sm:container mx-auto my-10 bg-gray-100 w-screen h-screen font-sans flex flex-row items-start justify-center">
-    <div class="w-1/3 mx-2 p-8 bg-white shadow-lg">
-        <img src="{{ $hotel->images }}" alt="{{ $hotel->name }}">
-        <h1 class="text-3xl font-bold text-cool-gray-900 mt-8 mb-10">
+<div class="w-screen sm:container mx-auto py-4 bg-gray-100 font-sans grid grid-cols-c2">
+    <div class="bg-white text-cool-gray-900 shadow-lg mx-2 p-4">
+        <img src="{{ $hotel->images }}" alt="{{ $hotel->name }}" width="100%">
+        <h1 class="text-3xl font-bold text-cool-gray-900 mt-4 mb-3">
             {{ $hotel->name }}
         </h1>
         <p class="text-md text-cool-gray-600 mb-4">
@@ -20,15 +20,22 @@
             <span class="font-bold">Email:</span> {{ $hotel->email }}
         </p>
     </div>
-    <div class="w-1/3 mx-2">
-        <div class="mb-2 p-8 bg-white shadow-lg">
+    <div class="text-cool-gray-900 mx-2">
+        <div class="bg-white p-4 shadow-lg ">
             <iframe class="my-4" width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ $hotel->latitude }},{{ $hotel->longitude }}&amp;key={{ env("GOOGLE_API",null )}}"></iframe>
-            <a href="https://www.latlong.net/c/?lat=-{{ $hotel->latitude }}&long={{ $hotel->longitude }}" target="_blank">({{ $hotel->latitude }}, {{ $hotel->longitude }})</a>
         </div>
-        <div class="mt-4 p-8 bg-white shadow-lg text-center">
-            <button class="w-1/3 p-4 text-white bg-green-600 hover:bg-green-500 transition duration-300 ease-in-out">Like</button>
-            <button class="w-1/3 p-4 text-white bg-red-600 hover:bg-red-500 transition duration-300 ease-in-out">Dislike</button>
+        @auth
+        <div class="mt-4 p-6 bg-white shadow-lg text-center">
+            <h1 class="font-bold text-2xl text-cool-gray-800 mb-4">Rate the Hotel!</h1>
+            <form action="rate" method="POST">
+                <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="1">*</button>
+                <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="2">* *</button>
+                <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="3">* * *</button>
+                <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="4">* * * *</button>
+                <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="5">* * * * *</button>
+            </form>
         </div>
+        @endauth
     </div>
 </div>
 @endsection

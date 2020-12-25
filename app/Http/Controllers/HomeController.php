@@ -34,5 +34,10 @@ class HomeController extends Controller
 		->paginate(6);
 
 		return view('home.index',['hotels' => $hotels]);
-	}
+    }
+    
+    public function rate()
+    {
+        
+    }
 }

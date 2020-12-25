@@ -28,16 +28,16 @@
             <h1 class="mb-8 text-4xl sm:text-5xl text-cool-gray-100 font-light text-center tracking-wider">
                 {{ config('app.name') }}
             </h1>
-            <form class="flex w-full" action="home" method="GET">
+            <form class="flex w-full" action="search" method="GET">
                 <input class="form-input rounded-none w-full" type="search" name="search" placeholder="Cari Hotel">
                 <button class="bg-red-700 text-white p-3" type="submit">Search</button>
             </form>
         </div>
-        <div class="w-11/12 mt-8 grid grid-cols-3 grid-rows-2 gap-6">
-            @foreach ($hotels as $h)
-                <a class="block bg-white p-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" href="{{ route('home.show', $h->id) }}">
-                    <h1 class="text-lg font-bold text-cool-gray-900 mb-4">{{ $h->name }}</h1>
-                    <p class="text-cool-gray-600">{{ \Illuminate\Support\Str::limit($h->description, 125, $end='...') }}</p>
+        <div class="w-10/12 mt-8 grid grid-cols-3 grid-rows-2 gap-6">
+            @foreach ($hotels as $hotel)
+                <a class="block bg-white p-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" href="{{ route('home.show', $hotel->id) }}">
+                    <h1 class="text-lg font-bold text-cool-gray-900 mb-4">{{ $hotel->name }}</h1>
+                    <p class="text-cool-gray-600">{{ \Illuminate\Support\Str::limit($hotel->description, 125, $end='...') }}</p>
                 </a>
             @endforeach
             <div class="col-span-3">

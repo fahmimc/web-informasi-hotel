@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
+    
+    protected $table = 'hotels';
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +25,7 @@ class Hotel extends Model
         'email',
         'latitude',
         'longitude',
+        'rating',
         'owner_id',
         'click_counter'
     ];

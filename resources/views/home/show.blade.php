@@ -27,7 +27,8 @@
         @auth
         <div class="mt-4 p-6 bg-white shadow-lg text-center">
             <h1 class="font-bold text-2xl text-cool-gray-800 mb-4">Rate the Hotel!</h1>
-            <form action="rate" method="POST">
+            <form action="rate">
+                @csrf
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="1">*</button>
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="2">* *</button>
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="3">* * *</button>

@@ -35,9 +35,4 @@ class HomeController extends Controller
 
 		return view('home.index',['hotels' => $hotels]);
     }
-    
-    public function rate()
-    {
-        
-    }
 }

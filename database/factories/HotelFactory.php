@@ -30,7 +30,7 @@ class HotelFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'latitude' => $this->faker->latitude($min = -1, $max = 1.352083),
             'longitude' => $this->faker->longitude($min = -100, $max = 103.819836),
-            'rating' => 0,
+            // 'rating' => 0,
             'click_counter' => 0,
             'owner_id' => $this->faker->unique()->numberBetween(1, \App\Models\User::count()),
             'created_at' => now(),

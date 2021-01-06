@@ -57,7 +57,7 @@ class DashboardController extends Controller
             $temp['images'] = $faker->imageUrl($width = 320, $height = 160);
         }
         
-        $temp['rating'] = 0;
+        // $temp['rating'] = 0;
         $temp['click_counter'] = 0;
         $temp['owner_id'] = Auth::id();
 

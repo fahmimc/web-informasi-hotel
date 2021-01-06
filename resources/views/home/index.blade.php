@@ -9,41 +9,20 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-cool-gray-900 h-screen w-screen antialiased leading-none font-sans flex flex-col">
-    @if(Route::has('login'))
-        <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="no-underline hover:underline text-sm font-normal text-cool-gray-400 uppercase">{{ __('Home') }}</a>
-            @else
-                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-cool-gray-400 uppercase">{{ __('Login') }}</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-cool-gray-400 uppercase">{{ __('Register') }}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+<body class="h-screen w-screen bg-cool-gray-100 text-cool-gray-600 antialiased leading-none font-sans flex flex-col">
 
-    <div class="min-h-screen flex flex-col items-center justify-center">
-        <div class="w-11/12 sm:w-8/12">
-            <h1 class="mb-8 text-4xl sm:text-5xl text-cool-gray-100 font-light text-center tracking-wider">
-                {{ config('app.name') }}
-            </h1>
-            <form class="flex w-full" action="search" method="GET">
-                <input class="form-input rounded-none w-full" type="search" name="search" placeholder="Cari Hotel">
-                <button class="bg-red-700 text-white p-3" type="submit">Search</button>
-            </form>
+    {{-- CONTENT --}}
+    <div class="w-full h-72 p-6 banner-bg text-center shadow-md">
+        {{-- BANNER IMAGES --}}
+        <div class="flex flex-col h-full justify-center">
+            <h1 class="text-cool-gray-100 font-bold text-6xl my-2">Informasi Hotel</h1>
+            <p class="text-cool-gray-300 text-2xl my-2">Ini placeholder buat tagline, tapi masih dikosongin karenta binyung!</p>
         </div>
-        <div class="w-10/12 mt-8 grid grid-cols-3 grid-rows-2 gap-6">
-            @foreach ($hotels as $hotel)
-                <a class="block bg-white p-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" href="{{ route('home.show', $hotel->id) }}">
-                    <h1 class="text-lg font-bold text-cool-gray-900 mb-4">{{ $hotel->name }}</h1>
-                    <p class="text-cool-gray-600">{{ \Illuminate\Support\Str::limit($hotel->description, 125, $end='...') }}</p>
-                </a>
-            @endforeach
-            <div class="col-span-3">
-                {!! $hotels->links() !!}
-            </div>
-        </div>
+        {{-- SEARCH BAR --}}
+        <form class="flex h-14 w-5/12 mx-auto" action="search" method="GET">
+            <input class="form-input rounded-md border-none shadow-lg w-full" type="search" name="search" placeholder="Cari Hotel">
+            {{-- <button class="bg-red-700 text-white p-3" type="submit">Search</button> --}}
+        </form>
     </div>
 </body>
 </html>

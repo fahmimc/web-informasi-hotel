@@ -24,11 +24,10 @@
         <div class="bg-white p-4 shadow-lg ">
             <iframe class="my-4" width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ $hotel->latitude }},{{ $hotel->longitude }}&amp;key={{ env("GOOGLE_API",null )}}"></iframe>
         </div>
-        @auth
+        {{-- @auth
         <div class="mt-4 p-6 bg-white shadow-lg text-center">
             <h1 class="font-bold text-2xl text-cool-gray-800 mb-4">Rate the Hotel!</h1>
             <form action="rate">
-                @csrf
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="1">*</button>
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="2">* *</button>
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="3">* * *</button>
@@ -36,7 +35,7 @@
                 <button class="p-4 text-2xl text-cool-gray-900 hover:text-yellow-300 transition duration-300 ease-in-out" type="submit" value="5">* * * * *</button>
             </form>
         </div>
-        @endauth
+        @endauth --}}
     </div>
 </div>
 @endsection

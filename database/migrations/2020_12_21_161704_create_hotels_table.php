@@ -24,7 +24,6 @@ class CreateHotelsTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->integer('click_counter');
-            $table->integer('rating');
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -8,9 +8,18 @@
     align-items: flex-start
 }
 
-.grid-cols-c1{
+.grid-cols-c1 {
     grid-template-columns: 0.3fr 1fr
 }
-.grid-cols-c2{
+.grid-cols-c2 {
     grid-template-columns: 0.4fr 0.6fr
+}
+
+.banner-bg {
+    background-color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../images/banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
